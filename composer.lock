@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5bca48e56bbf3a25645858fcab9c285",
+    "content-hash": "d36351b77154cf97f3d59767e75a165e",
     "packages": [
+        {
+            "name": "calebporzio/laravel-frontend-preset",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/calebporzio/laravel-frontend-preset.git",
+                "reference": "c9d288db39d0d41674f2b40beead64d3ca6fc137"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/calebporzio/laravel-frontend-preset/zipball/c9d288db39d0d41674f2b40beead64d3ca6fc137",
+                "reference": "c9d288db39d0d41674f2b40beead64d3ca6fc137",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "CalebPorzio\\LaravelPreset\\PresetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CalebPorzio\\LaravelPreset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caleb Porzio",
+                    "email": "calebporzio@gmail.com"
+                }
+            ],
+            "description": "My personal frontend preset for new laravel applications.",
+            "time": "2018-04-15T19:30:12+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
