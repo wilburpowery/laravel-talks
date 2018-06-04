@@ -16,8 +16,6 @@
         </script>
     </head>
     <body class="antialiased bg-grey-lightest font-sans leading-tight text-black">
-        <!-- Top Bar -->
-        <div class="bg-purple pb-1"></div>
 
         <div id="app" v-cloak>
             @yield('body')
