@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('talks/create', 'TalksController@create')->middleware('auth')->name('talks.create');
+Route::post('talks', 'TalksController@store')->middleware('auth')->name('talks.store');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('talks/{talk}/links', 'TalkLinksController@create')->middleware('auth')->name('talk.links.create');
