@@ -34,5 +34,8 @@ class TalksController extends Controller
         return back();
     }
 
+    public function show(Talk $talk)
+    {
+        return view('talks.show', ['talk' => $talk]);
     }
 }
