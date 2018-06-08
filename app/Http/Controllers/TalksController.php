@@ -13,14 +13,26 @@ class TalksController extends Controller
 
     public function store()
     {
-        $data = request()->validate([
+        request()->validate([
             'title' => 'required',
             'description' => 'required',
-            'accepting_petitions' => 'required|boolean'
+            'thumbnail' => 'required|image',
+            'slides_url' => 'required|url',
+            'video_url' => 'url',
+            'available_to_speak' => 'required|boolean'
         ]);
 
-        $talk = Talk::create($data);
+        $talk = Talk::create([
+            'title' => request('title'),
+            'description' => request('description'),
+            'thumbnail_path' => request()->file('thumbnail')->store('thumbnails', 'public'),
+            'slides_url' => request('slides_url'),
+            'video_url' => request('video_url'),
+            'available_to_speak' => request('available_to_speak')
+        ]);
 
-        return redirect(route('talk.links.create', $talk));
+        return back();
+    }
+
     }
 }

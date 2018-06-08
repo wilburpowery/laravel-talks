@@ -2,7 +2,10 @@
 
 namespace Tests\Feature;
 
+use App\Talk;
 use Tests\TestCase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CreateTalksTest extends TestCase
@@ -22,32 +25,44 @@ class CreateTalksTest extends TestCase
     /** @test **/
     public function a_user_can_add_a_talk()
     {
+        Storage::fake('public');
+
         $this->signIn();
 
         $this->post(route('talks.store'), [
             'title' => 'My First Talk',
             'description' => 'Learn to TDD a Laravel application',
-            'accepting_petitions' => true,
+            'slides_url' => 'https://cdn.com/slides',
+            'video_url' => 'https://cdn.com/video',
+            'thumbnail' => $file = UploadedFile::fake()->image('thumbnail.jpg'),
+            'available_to_speak' => true,
         ]);
+
+        Storage::disk('public')->assertExists("thumbnails/{$file->hashName()}");
 
         $this->assertDatabaseHas('talks', [
             'title' => 'My First Talk',
             'slug' => 'my-first-talk-1',
-            'accepting_petitions' => true
+            'slides_url' => 'https://cdn.com/slides',
+            'video_url' => 'https://cdn.com/video',
+            'thumbnail_path' => "thumbnails/{$file->hashName()}",
+            'available_to_speak' => true
         ]);
     }
 
     /** @test **/
-    public function a_user_gets_redirect_to_the_links_page_after_adding_the_talk()
+    public function a_talk_requires_a_thumbnail()
     {
         $this->signIn();
 
         $response = $this->post(route('talks.store'), [
             'title' => 'My First Talk',
             'description' => 'Learn to TDD a Laravel application',
-            'accepting_petitions' => true,
+            'slides_url' => 'https://cdn.com/slides',
+            'video_url' => 'https://cdn.com/video',
+            'available_to_speak' => true,
         ]);
 
-        $response->assertRedirect(route('talk.links.create', 1));
+        $response->assertSessionHasErrors(['thumbnail']);
     }
 }
