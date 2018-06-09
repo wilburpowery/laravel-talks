@@ -14,3 +14,5 @@
 Route::get('talks/create', 'TalksController@create')->middleware('auth')->name('talks.create');
 Route::post('talks', 'TalksController@store')->middleware('auth')->name('talks.store');
 Route::get('talks/{talk}', 'TalksController@show')->middleware('auth')->name('talks.show');
+
+Route::post('talks/{talk}/like', 'TalkLikesController@store')->middleware('auth')->name('talk.like');

@@ -26,4 +26,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function likeTalk(Talk $talk)
+    {
+        $this->likes()->create([
+            'talk_id' => $talk->id,
+        ]);
+    }
 }
