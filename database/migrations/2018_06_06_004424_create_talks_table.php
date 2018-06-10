@@ -15,6 +15,7 @@ class CreateTalksTable extends Migration
     {
         Schema::create('talks', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->string('title');
             $table->string('slug')->nullable();
             $table->text('description');

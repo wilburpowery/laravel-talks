@@ -27,6 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function talks()
+    {
+        return $this->hasMany(Talk::class);
+    }
+
     public function likes()
     {
         return $this->hasMany(Like::class);

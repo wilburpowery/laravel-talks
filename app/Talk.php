@@ -24,6 +24,11 @@ class Talk extends Model
         return asset($thumbnail_path);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function likes()
     {
         return $this->hasMany(Like::class);
