@@ -12,4 +12,11 @@ class TalkLikesController extends Controller
 
         return response([], 201);
     }
+
+    public function destroy(Talk $talk)
+    {
+        $talk->likes()->where('user_id', auth()->id())->first()->delete();
+
+        return response([], 202);
+    }
 }

@@ -8,7 +8,7 @@ class Talk extends Model
 {
     protected $guarded = [];
 
-    protected $with = ['likes_count'];
+    protected $appends = ['likes_count'];
 
     protected static function boot()
     {
@@ -31,6 +31,6 @@ class Talk extends Model
 
     public function getLikesCountAttribute()
     {
-        return $this->likes->count();
+        return $this->likes()->count();
     }
 }

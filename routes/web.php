@@ -16,3 +16,4 @@ Route::post('talks', 'TalksController@store')->middleware('auth')->name('talks.s
 Route::get('talks/{talk}', 'TalksController@show')->middleware('auth')->name('talks.show');
 
 Route::post('talks/{talk}/like', 'TalkLikesController@store')->middleware('auth')->name('talk.like');
+Route::delete('talks/{talk}/like', 'TalkLikesController@destroy')->middleware('auth')->name('talk.unlike');
