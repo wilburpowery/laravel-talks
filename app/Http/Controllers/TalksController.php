@@ -22,7 +22,7 @@ class TalksController extends Controller
             'available_to_speak' => 'required|boolean'
         ]);
 
-        $talk = Talk::create([
+        $talk = auth()->user()->talks()->create([
             'title' => request('title'),
             'description' => request('description'),
             'thumbnail_path' => request()->file('thumbnail')->store('thumbnails', 'public'),

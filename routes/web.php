@@ -17,3 +17,5 @@ Route::get('talks/{talk}', 'TalksController@show')->middleware('auth')->name('ta
 
 Route::post('talks/{talk}/like', 'TalkLikesController@store')->middleware('auth')->name('talk.like');
 Route::delete('talks/{talk}/like', 'TalkLikesController@destroy')->middleware('auth')->name('talk.unlike');
+
+Route::post('talks/{talk}/contact-speaker', 'ContactSpeakerForTalk')->middleware('auth')->name('contact-speaker-for-talk');
