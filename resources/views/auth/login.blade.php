@@ -23,6 +23,12 @@
                             </button>
                         </div>
 
+                        <div class="my-4">
+                            <a class="py-2 px-3 no-underline text-grey-darkest" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                            </a>
+                        </div>
+
                     </form>
                 </div>
             </div>
