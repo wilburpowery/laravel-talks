@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/', 'HomeController@index');
+
+Auth::routes();
+
 Route::get('talks/create', 'TalksController@create')->middleware('auth')->name('talks.create');
 Route::post('talks', 'TalksController@store')->middleware('auth')->name('talks.store');
 Route::get('talks/{talk}', 'TalksController@show')->middleware('auth')->name('talks.show');
