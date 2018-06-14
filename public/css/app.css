@@ -725,6 +725,10 @@ button,
   background-color: #fff;
 }
 
+.bg-beige {
+  background-color: #f4f4f4;;
+}
+
 .bg-red-darkest {
   background-color: #3b0d0c;
 }
@@ -1015,6 +1019,10 @@ button,
 
 .hover\:bg-white:hover {
   background-color: #fff;
+}
+
+.hover\:bg-beige:hover {
+  background-color: #f4f4f4;;
 }
 
 .hover\:bg-red-darkest:hover {
@@ -1373,6 +1381,10 @@ button,
   border-color: #fff;
 }
 
+.border-beige {
+  border-color: #f4f4f4;;
+}
+
 .border-red-darkest {
   border-color: #3b0d0c;
 }
@@ -1663,6 +1675,10 @@ button,
 
 .hover\:border-white:hover {
   border-color: #fff;
+}
+
+.hover\:border-beige:hover {
+  border-color: #f4f4f4;;
 }
 
 .hover\:border-red-darkest:hover {
@@ -3733,6 +3749,10 @@ button,
   color: #fff;
 }
 
+.text-beige {
+  color: #f4f4f4;;
+}
+
 .text-red-darkest {
   color: #3b0d0c;
 }
@@ -4023,6 +4043,10 @@ button,
 
 .hover\:text-white:hover {
   color: #fff;
+}
+
+.hover\:text-beige:hover {
+  color: #f4f4f4;;
 }
 
 .hover\:text-red-darkest:hover {
@@ -4727,6 +4751,10 @@ button:focus {
     background-color: #fff;
   }
 
+  .sm\:bg-beige {
+    background-color: #f4f4f4;;
+  }
+
   .sm\:bg-red-darkest {
     background-color: #3b0d0c;
   }
@@ -5017,6 +5045,10 @@ button:focus {
 
   .sm\:hover\:bg-white:hover {
     background-color: #fff;
+  }
+
+  .sm\:hover\:bg-beige:hover {
+    background-color: #f4f4f4;;
   }
 
   .sm\:hover\:bg-red-darkest:hover {
@@ -5375,6 +5407,10 @@ button:focus {
     border-color: #fff;
   }
 
+  .sm\:border-beige {
+    border-color: #f4f4f4;;
+  }
+
   .sm\:border-red-darkest {
     border-color: #3b0d0c;
   }
@@ -5665,6 +5701,10 @@ button:focus {
 
   .sm\:hover\:border-white:hover {
     border-color: #fff;
+  }
+
+  .sm\:hover\:border-beige:hover {
+    border-color: #f4f4f4;;
   }
 
   .sm\:hover\:border-red-darkest:hover {
@@ -7727,6 +7767,10 @@ button:focus {
     color: #fff;
   }
 
+  .sm\:text-beige {
+    color: #f4f4f4;;
+  }
+
   .sm\:text-red-darkest {
     color: #3b0d0c;
   }
@@ -8017,6 +8061,10 @@ button:focus {
 
   .sm\:hover\:text-white:hover {
     color: #fff;
+  }
+
+  .sm\:hover\:text-beige:hover {
+    color: #f4f4f4;;
   }
 
   .sm\:hover\:text-red-darkest:hover {
@@ -8696,6 +8744,10 @@ button:focus {
     background-color: #fff;
   }
 
+  .md\:bg-beige {
+    background-color: #f4f4f4;;
+  }
+
   .md\:bg-red-darkest {
     background-color: #3b0d0c;
   }
@@ -8986,6 +9038,10 @@ button:focus {
 
   .md\:hover\:bg-white:hover {
     background-color: #fff;
+  }
+
+  .md\:hover\:bg-beige:hover {
+    background-color: #f4f4f4;;
   }
 
   .md\:hover\:bg-red-darkest:hover {
@@ -9344,6 +9400,10 @@ button:focus {
     border-color: #fff;
   }
 
+  .md\:border-beige {
+    border-color: #f4f4f4;;
+  }
+
   .md\:border-red-darkest {
     border-color: #3b0d0c;
   }
@@ -9634,6 +9694,10 @@ button:focus {
 
   .md\:hover\:border-white:hover {
     border-color: #fff;
+  }
+
+  .md\:hover\:border-beige:hover {
+    border-color: #f4f4f4;;
   }
 
   .md\:hover\:border-red-darkest:hover {
@@ -11696,6 +11760,10 @@ button:focus {
     color: #fff;
   }
 
+  .md\:text-beige {
+    color: #f4f4f4;;
+  }
+
   .md\:text-red-darkest {
     color: #3b0d0c;
   }
@@ -11986,6 +12054,10 @@ button:focus {
 
   .md\:hover\:text-white:hover {
     color: #fff;
+  }
+
+  .md\:hover\:text-beige:hover {
+    color: #f4f4f4;;
   }
 
   .md\:hover\:text-red-darkest:hover {
@@ -12665,6 +12737,10 @@ button:focus {
     background-color: #fff;
   }
 
+  .lg\:bg-beige {
+    background-color: #f4f4f4;;
+  }
+
   .lg\:bg-red-darkest {
     background-color: #3b0d0c;
   }
@@ -12955,6 +13031,10 @@ button:focus {
 
   .lg\:hover\:bg-white:hover {
     background-color: #fff;
+  }
+
+  .lg\:hover\:bg-beige:hover {
+    background-color: #f4f4f4;;
   }
 
   .lg\:hover\:bg-red-darkest:hover {
@@ -13313,6 +13393,10 @@ button:focus {
     border-color: #fff;
   }
 
+  .lg\:border-beige {
+    border-color: #f4f4f4;;
+  }
+
   .lg\:border-red-darkest {
     border-color: #3b0d0c;
   }
@@ -13603,6 +13687,10 @@ button:focus {
 
   .lg\:hover\:border-white:hover {
     border-color: #fff;
+  }
+
+  .lg\:hover\:border-beige:hover {
+    border-color: #f4f4f4;;
   }
 
   .lg\:hover\:border-red-darkest:hover {
@@ -15665,6 +15753,10 @@ button:focus {
     color: #fff;
   }
 
+  .lg\:text-beige {
+    color: #f4f4f4;;
+  }
+
   .lg\:text-red-darkest {
     color: #3b0d0c;
   }
@@ -15955,6 +16047,10 @@ button:focus {
 
   .lg\:hover\:text-white:hover {
     color: #fff;
+  }
+
+  .lg\:hover\:text-beige:hover {
+    color: #f4f4f4;;
   }
 
   .lg\:hover\:text-red-darkest:hover {
@@ -16634,6 +16730,10 @@ button:focus {
     background-color: #fff;
   }
 
+  .xl\:bg-beige {
+    background-color: #f4f4f4;;
+  }
+
   .xl\:bg-red-darkest {
     background-color: #3b0d0c;
   }
@@ -16924,6 +17024,10 @@ button:focus {
 
   .xl\:hover\:bg-white:hover {
     background-color: #fff;
+  }
+
+  .xl\:hover\:bg-beige:hover {
+    background-color: #f4f4f4;;
   }
 
   .xl\:hover\:bg-red-darkest:hover {
@@ -17282,6 +17386,10 @@ button:focus {
     border-color: #fff;
   }
 
+  .xl\:border-beige {
+    border-color: #f4f4f4;;
+  }
+
   .xl\:border-red-darkest {
     border-color: #3b0d0c;
   }
@@ -17572,6 +17680,10 @@ button:focus {
 
   .xl\:hover\:border-white:hover {
     border-color: #fff;
+  }
+
+  .xl\:hover\:border-beige:hover {
+    border-color: #f4f4f4;;
   }
 
   .xl\:hover\:border-red-darkest:hover {
@@ -19634,6 +19746,10 @@ button:focus {
     color: #fff;
   }
 
+  .xl\:text-beige {
+    color: #f4f4f4;;
+  }
+
   .xl\:text-red-darkest {
     color: #3b0d0c;
   }
@@ -19924,6 +20040,10 @@ button:focus {
 
   .xl\:hover\:text-white:hover {
     color: #fff;
+  }
+
+  .xl\:hover\:text-beige:hover {
+    color: #f4f4f4;;
   }
 
   .xl\:hover\:text-red-darkest:hover {

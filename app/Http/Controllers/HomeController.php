@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Talk;
+
 class HomeController extends Controller
 {
     /**
@@ -11,6 +13,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $talks = Talk::paginate(15);
+
+        return view('home', ['talks' => $talks]);
     }
 }

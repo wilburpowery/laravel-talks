@@ -9,7 +9,7 @@ $factory->define(Talk::class, function (Faker $faker) {
         'user_id' => function () {
             return factory(User::class)->create()->id;
         },
-        'title' => $faker->title(),
+        'title' => $faker->sentence(),
         'description' => $faker->paragraph(),
         'slides_url' => $faker->url,
         'video_url' => $faker->url,
