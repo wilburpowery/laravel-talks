@@ -5,11 +5,13 @@
         <h1 class="mb-6">Latests Talks</h1>
         <div class="flex flex-wrap -mx-4">
             @foreach($talks as $talk)
-                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-                    <div class="flex flex-col h-full bg-white shadow rounded-lg">
+                <div class="w-full md:w-1/2 px-4 mb-8">
+                    <div class="flex flex-col h-full bg-white shadow-md rounded-lg">
                         <header class="mb-3 relative">
                             <img src="https://i.ytimg.com/vi/ByjMirknC9U/maxresdefault.jpg" alt="{{ $talk->title }}">
-                            <img class="w-8 h-8 rounded-full absolute pin-b shadow" style="right: 10px;" src="https://avatars3.githubusercontent.com/u/15817188?s=460&v=4" alt="">
+                            <a href="https://google.com">
+                                <img class="w-10 h-10 rounded-full absolute pin-b shadow" style="right: 10px;" src="https://avatars3.githubusercontent.com/u/15817188?s=460&v=4" alt="">
+                            </a>
                         </header>
                         <main class="flex-1 p-4 mb-6">
                             <div class="mb-3">
