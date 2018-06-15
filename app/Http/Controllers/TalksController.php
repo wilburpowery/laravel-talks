@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Talk;
-
 class TalksController extends Controller
 {
     public function create()
@@ -32,10 +30,5 @@ class TalksController extends Controller
         ]);
 
         return back();
-    }
-
-    public function show(Talk $talk)
-    {
-        return view('talks.show', ['talk' => $talk]);
     }
 }
