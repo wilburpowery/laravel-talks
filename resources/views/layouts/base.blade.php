@@ -58,7 +58,7 @@
     </div>
 </header>
 
-<main class="flex-1 px-4" id="app" v-cloak>
+<main class="flex-1 my-4 px-4" id="app" v-cloak>
     @yield('body')
 </main>
 

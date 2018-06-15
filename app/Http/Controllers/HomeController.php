@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $talks = Talk::paginate(15);
+        $talks = Talk::paginate(16);
 
         return view('home', ['talks' => $talks]);
     }
