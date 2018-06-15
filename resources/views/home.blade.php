@@ -4,7 +4,7 @@
     <div class="container mx-auto">
         <h1 class="mb-6">Latests Talks</h1>
         <div class="flex flex-wrap -mx-4">
-            @foreach($talks as $talk)
+            @forelse($talks as $talk)
                 <div class="w-full md:w-1/2 px-4 mb-8">
                     <div class="flex flex-col h-full bg-white shadow-md rounded-lg">
                         <header class="mb-3 relative">
@@ -45,7 +45,10 @@
                         </footer>
                     </div>
                 </div>
-            @endforeach
+
+                @empty
+                    <p class="w-full text-center">No talks at the moment. Consider submitting a talk you have given! 😊</p>
+            @endforelse
         </div>
     </div>
 @endsection
