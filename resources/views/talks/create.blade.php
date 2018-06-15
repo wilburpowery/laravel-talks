@@ -3,7 +3,7 @@
 @section('body')
     <div class="container mx-auto">
         <div class="flex flex-wrap justify-center -mx-4">
-            <div class="w-1/2 px-4">
+            <div class="w-full md:w-2/3 lg:w-1/2 px-4">
                 <div class="bg-white p-4 shadow">
                     <h2 class="mb-6">Add your talk</h2>
 
@@ -45,9 +45,11 @@
                         </div>
 
 
-                        <button class="shadow bg-purple hover:bg-purple-light text-white font-bold py-2 px-6 rounded">
-                            Add
-                        </button>
+                        <div class="flex justify-center">
+                            <button class="w-full md:w-1/2 shadow bg-purple hover:bg-purple-light text-white font-bold py-2 px-6 rounded">
+                                Add
+                            </button>
+                        </div>
 
                     </form>
                 </div>
