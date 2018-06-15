@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::redirect('login', 'login/github');
 
-Auth::routes();
+Route::get('login/github', 'Auth\LoginController@redirectToProvider')->name('login');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('talks/create', 'TalksController@create')->middleware('auth')->name('talks.create');
 Route::post('talks', 'TalksController@store')->middleware('auth')->name('talks.store');
