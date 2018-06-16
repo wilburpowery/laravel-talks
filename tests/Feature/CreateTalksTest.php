@@ -4,8 +4,6 @@ namespace Tests\Feature;
 
 use App\Talk;
 use Tests\TestCase;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CreateTalksTest extends TestCase
@@ -25,44 +23,25 @@ class CreateTalksTest extends TestCase
     /** @test **/
     public function a_user_can_add_a_talk()
     {
-        Storage::fake('public');
-
         $this->signIn();
+
+        $this->withoutExceptionHandling();
 
         $this->post(route('talks.store'), [
             'title' => 'My First Talk',
             'description' => 'Learn to TDD a Laravel application',
             'slides_url' => 'https://cdn.com/slides',
             'video_url' => 'https://cdn.com/video',
-            'thumbnail' => $file = UploadedFile::fake()->image('thumbnail.jpg'),
+            'thumbnail_url' => null,
             'available_to_speak' => true,
         ]);
-
-        Storage::disk('public')->assertExists("thumbnails/{$file->hashName()}");
 
         $this->assertDatabaseHas('talks', [
             'title' => 'My First Talk',
             'slug' => 'my-first-talk-1',
             'slides_url' => 'https://cdn.com/slides',
             'video_url' => 'https://cdn.com/video',
-            'thumbnail_path' => "thumbnails/{$file->hashName()}",
             'available_to_speak' => true
         ]);
-    }
-
-    /** @test **/
-    public function a_talk_requires_a_thumbnail()
-    {
-        $this->signIn();
-
-        $response = $this->post(route('talks.store'), [
-            'title' => 'My First Talk',
-            'description' => 'Learn to TDD a Laravel application',
-            'slides_url' => 'https://cdn.com/slides',
-            'video_url' => 'https://cdn.com/video',
-            'available_to_speak' => true,
-        ]);
-
-        $response->assertSessionHasErrors(['thumbnail']);
     }
 }

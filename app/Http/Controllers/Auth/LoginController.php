@@ -52,6 +52,7 @@ class LoginController extends Controller
         $user = User::firstOrCreate([
             'name' => $oAuthUser->name,
             'email' => $oAuthUser->email,
+            'nickname' => $oAuthUser->nickname,
             'github_id' => $oAuthUser->id,
             'avatar' => $oAuthUser->avatar
         ]);

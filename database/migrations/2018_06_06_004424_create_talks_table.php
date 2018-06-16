@@ -19,7 +19,7 @@ class CreateTalksTable extends Migration
             $table->string('title');
             $table->string('slug')->nullable();
             $table->text('description');
-            $table->string('thumbnail_path');
+            $table->string('thumbnail_url')->nullable();
             $table->string('slides_url');
             $table->string('video_url');
             $table->boolean('available_to_speak');

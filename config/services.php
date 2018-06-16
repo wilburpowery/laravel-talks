@@ -39,4 +39,9 @@ return [
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
         'redirect' => env('GITHUB_CALLBACK_URL'),
     ],
+
+    'uploadcare' => [
+        'key' => env('UPLOADCARE_KEY'),
+        'secret' => env('UPLOADCARE_SECRET'),
+    ]
 ];

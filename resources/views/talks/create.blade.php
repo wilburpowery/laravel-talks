@@ -1,13 +1,28 @@
 @extends('layouts.base')
 
+@section('header-scripts')
+    {!! $uploadcare->api()->widget->getScriptTag() !!}
+@endsection
+
 @section('body')
     <div class="container mx-auto">
         <div class="flex flex-wrap justify-center -mx-4">
             <div class="w-full md:w-2/3 lg:w-1/2 px-4">
                 <div class="bg-white p-4 shadow">
+                    @if($errors->any())
+                        <div class="bg-red-light p-3 text-white mb-3">
+                            <ul class="list-reset">
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <h2 class="mb-6">Add your talk</h2>
 
-                    <form action="{{ route('talks.store') }}" method="POST">
+                    <form action="{{ route('talks.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+
                         <div class="mb-6">
                             <label for="title" class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">Title (*)</label>
                             <input type="text" name="title" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight" id="title" placeholder="Learning Laravel" required>
@@ -31,8 +46,11 @@
                         </div>
 
                         <div class="mb-6">
-                            <label for="thumbnail" class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">Talk Thumbnail (*)</label>
-                            <input type="file" name="thumbnail" id="thumbnail" placeholder="https://speakerdeck.com/johndoe/awesome-talk" required>
+                            <label for="image" class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">Thumbnail (*)</label>
+                            {!! $uploadcare->api()->widget->getInputTag('image', [
+                            'data-crop' => '700x350 minimum',
+                            'data-image-only'
+                            ]) !!}
                         </div>
 
                         <div class="mb-6">
@@ -56,4 +74,34 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('footer-scripts')
+<script>
+    UPLOADCARE_LOCALE_TRANSLATIONS = {
+        // messages for widget
+        errors: {
+            'fileMinimalSize': 'File is too small',
+        },
+        // messages for dialog’s error page
+        dialog: {
+            tabs: {
+                preview: {
+                    error: {
+                        'fileMinimalSize': {
+                            title: 'Opps!',
+                            text: 'The image size should be at least 700x350 pixels.',
+                            back: 'Try Again'
+                        }
+                    }
+                }
+            }
+        }
+    };
+    uploadcare.Widget('[name="image"]').validators.push(function (fileInfo) {
+        if (fileInfo.size !== null && fileInfo.size < 700 * 350) {
+            throw new Error("fileMinimalSize");
+        }
+    });
+</script>
 @endsection

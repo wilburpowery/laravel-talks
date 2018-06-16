@@ -14,6 +14,7 @@
             appName: '{{ config('app.name') }}'
         }
     </script>
+    @yield('header-scripts')
 </head>
 <body class="min-h-screen flex flex-col antialiased bg-beige font-sans leading-tight text-grey-darkest">
     <header class="bg-white border-b p-4 mb-8">
@@ -71,8 +72,8 @@
     </div>
 </footer>
 
-@stack('beforeScripts')
+@yield('footer-scripts')
 <script src="{{ mix('js/app.js') }}"></script>
-@stack('afterScripts')
+
 </body>
 </html>

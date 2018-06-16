@@ -8,9 +8,9 @@
                 <div class="w-full md:w-1/2 px-4 mt-4 mb-8">
                     <div class="flex flex-col h-full bg-white shadow-md rounded-lg">
                         <header class="mb-3 relative">
-                            <img src="https://i.ytimg.com/vi/ByjMirknC9U/maxresdefault.jpg" alt="{{ $talk->title }}">
-                            <a href="https://google.com">
-                                <img class="w-10 h-10 rounded-full absolute pin-b shadow" style="right: 10px;" src="https://avatars3.githubusercontent.com/u/15817188?s=460&v=4" alt="">
+                            <img src="{{ $talk->thumbnail_url }}" alt="{{ $talk->title }}">
+                            <a href="https://github.com/{{ Auth::user()->nickname }}">
+                            <img class="w-10 h-10 rounded-full absolute pin-b shadow" style="right: 10px;" src="{{ Auth::user()->avatar }}" alt="">
                             </a>
                         </header>
                         <main class="flex-1 p-4 mb-6">

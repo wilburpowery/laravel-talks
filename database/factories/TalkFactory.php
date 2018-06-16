@@ -13,7 +13,7 @@ $factory->define(Talk::class, function (Faker $faker) {
         'description' => $faker->paragraph(),
         'slides_url' => $faker->url,
         'video_url' => $faker->url,
-        'thumbnail_path' => 'storage/thumbnails/image.jpg',
+        'thumbnail_url' => null,
         'available_to_speak' => false,
     ];
 });
