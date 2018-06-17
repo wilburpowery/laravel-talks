@@ -33,7 +33,7 @@ class TalksController extends Controller
                 }
             }],
             'slides_url' => 'required|url',
-            'video_url' => 'url',
+            'video_url' => 'url|nullable',
             'available_to_speak' => 'boolean'
         ]);
 
