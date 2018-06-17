@@ -12,11 +12,11 @@
     <script>
         window.Laravel = {!! json_encode([
             'signedIn' => Auth::check()
-        ]) !!};
-    </script>
-    @yield('header-scripts')
+            ]) !!};
+        </script>
+        @yield('header-scripts')
 
-    @if(App::environment() == 'production')
+        @if(App::environment() == 'production')
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99829990-2"></script>
         <script>
@@ -26,66 +26,70 @@
 
             gtag('config', 'UA-99829990-2');
         </script>
-    @endif
-</head>
-<body class="min-h-screen flex flex-col antialiased bg-beige font-sans leading-tight text-grey-darkest">
-    <header class="bg-white border-b p-4 mb-8">
-        <div class="container mx-auto">
-            <nav class="flex flex-col md:flex-row items-center justify-between">
-                <div class="mb-8 md:m-0">
-                    <a href="/" class="no-underline hover:text-orange">
-                        @include('icons.logo')
-                    </a>
-                </div>
-                <div>
-                    @guest
-                    <a href="{{ route('login') }}" class="border border-grey-light text-grey-darkest py-2 px-4 flex items-center hover:bg-grey-lightest no-underline">
-                        @include('icons.user-add')
-                        Login
-                    </a>
-                    @endguest
-
-                    @auth
-                    <div class="flex flex-col md:flex-row items-center">
-                        <div class="flex items-center md:mr-8 mb-2 md:mb-0">
-                            <img class="w-8 h-8 rounded-full border p-px mr-1" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
-                            <span class="text-sm md:text-base">{{ Auth::user()->name }}</span>
-                        </div>
-                        <a href="{{ route('talks.create') }}" class="text-grey-darkest py-2 px-4 flex items-center hover:bg-grey-lightest no-underline mr-3 mb-2 md:mb-0">
-                            @include('icons.plus-round')
-                            Submit a Talk
+        @endif
+    </head>
+    <body class="min-h-screen flex flex-col antialiased bg-beige font-sans leading-tight text-grey-darkest">
+        <header class="bg-white border-b p-4 mb-8">
+            <div class="container mx-auto">
+                <nav class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="mb-8 md:m-0">
+                        <a href="/" class="no-underline hover:text-orange">
+                            @include('icons.logo')
                         </a>
-                        <a href="{{ route('login') }}" class="flex items-center py-2 px-3 bg-red bg:red-dark text-white no-underline rounded"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        Logout
-                        @include('icons.arrow-right-circle')
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
+                    </div>
+                    <div>
+                        @guest
+                        <a href="{{ route('login') }}" class="border border-grey-light text-grey-darkest py-2 px-4 flex items-center hover:bg-grey-lightest no-underline">
+                            @include('icons.github', ['classes' => 'w-4 h-4 fill-current mr-2'])
+                            Login
+                        </a>
+                        @endguest
+
+                        @auth
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="flex items-center md:mr-8 mb-2 md:mb-0">
+                                <img class="w-8 h-8 rounded-full border p-px mr-1" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
+                                <span class="text-sm md:text-base">{{ Auth::user()->name }}</span>
+                            </div>
+                            <a href="{{ route('talks.create') }}" class="text-grey-darkest py-2 px-4 flex items-center hover:bg-grey-lightest no-underline mr-3 mb-2 md:mb-0">
+                                @include('icons.plus-round')
+                                Submit a Talk
+                            </a>
+                            <a href="{{ route('login') }}" class="flex items-center py-2 px-3 bg-red bg:red-dark text-white no-underline rounded"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            Logout
+                            @include('icons.arrow-right-circle')
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                    @endauth
                 </div>
-                @endauth
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-1 my-4 px-4" id="app" v-cloak>
+        @yield('body')
+    </main>
+
+    <footer class="bg-grey-light py-8 mt-8">
+        <div class="container mx-auto">
+            <div class="flex flex-col text-center font-bold text-sm">
+                <p class="mb-2">
+                    A project by <a class="text-black font-bold no-underline hover:underline" href="https://twitter.com/wilburpowery" target="_blank">Wilbur Powery</a>. Copyright {{ now()->year }}
+                </p>
+                <a class="flex items-center justify-center text-grey-darkest no-underline hover:underline" href="https://github.com/wilburpowery/laravel-talks" target="_blank">
+                    Contribute @include('icons.github', ['classes' => 'w-4 h-4 fill-current ml-1'])
+                </a>
             </div>
-        </nav>
-    </div>
-</header>
+        </div>
+    </footer>
 
-<main class="flex-1 my-4 px-4" id="app" v-cloak>
-    @yield('body')
-</main>
-
-<footer class="bg-grey-light py-8 mt-8">
-    <div class="container mx-auto">
-        <h4 class="text-center">
-            A project by <a class="text-black font-bold no-underline" href="https://twitter.com/wilburpowery" target="_blank">Wilbur Powery</a>
-            | Copyright {{ now()->year }}
-        </h4>
-    </div>
-</footer>
-
-@yield('footer-scripts')
-<script src="{{ mix('js/app.js') }}"></script>
+    @yield('footer-scripts')
+    <script src="{{ mix('js/app.js') }}"></script>
 
 </body>
 </html>
