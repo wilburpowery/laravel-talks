@@ -49,6 +49,6 @@ class TalksController extends Controller
             'available_to_speak' => request()->has('available_to_speak')
         ]);
 
-        return back();
+        return redirect(route('home'));
     }
 }
