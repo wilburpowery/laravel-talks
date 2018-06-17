@@ -10,12 +10,12 @@
                         <header class="mb-3 relative">
                             <img src="{{ $talk->thumbnail_url }}" alt="{{ $talk->title }}">
                             <a href="https://github.com/{{ $talk->user->nickname }}">
-                            <img class="w-10 h-10 rounded-full absolute pin-b shadow" style="right: 10px;" src="{{ $talk->user->avatar }}" alt="">
+                            <img class="w-10 h-10 rounded-full absolute pin-b shadow" style="right: 10px;" src="{{ $talk->user->avatar }}" alt="{{ $talk->user->name }}">
                             </a>
                         </header>
                         <main class="flex-1 p-4 mb-6">
                             <div class="mb-3">
-                                <h4 class="mb-3">{{ $talk->title }}</h4>
+                                <h3 class="mb-3">{{ $talk->title }}</h3>
                                 {{ $talk->description }}
                             </div>
 
