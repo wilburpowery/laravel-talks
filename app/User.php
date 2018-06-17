@@ -43,4 +43,14 @@ class User extends Authenticatable
             'talk_id' => $talk->id,
         ]);
     }
+
+    public function contactsForTalk()
+    {
+        return $this->hasMany(UsersContactForTalk::class);
+    }
+
+    public function hasContactedAboutTalk($talk)
+    {
+        return (bool) $this->contactsForTalk->where('talk_id', $talk->id)->count();
+    }
 }

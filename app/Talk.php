@@ -8,7 +8,7 @@ class Talk extends Model
 {
     protected $guarded = [];
 
-    protected $appends = ['likes_count', 'is_liked'];
+    protected $appends = ['likes_count', 'is_liked', 'has_been_contacted_by_user'];
 
     protected static function boot()
     {
@@ -42,5 +42,15 @@ class Talk extends Model
     public function getIsLikedAttribute()
     {
         return (bool) $this->likes->where('user_id', auth()->id())->count();
+    }
+
+    public function contactsFromUsers()
+    {
+        return $this->hasMany(UsersContactForTalk::class);
+    }
+
+    public function getHasBeenContactedByUserAttribute()
+    {
+        return (bool) $this->contactsFromUsers->where('user_id', auth()->id())->count();
     }
 }

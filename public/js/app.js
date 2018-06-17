@@ -34973,13 +34973,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['talkId'],
+  props: ['talk'],
 
   components: { Spinner: __WEBPACK_IMPORTED_MODULE_1_vue_spinner_component_src_Spinner_vue___default.a },
 
   data: function data() {
     return {
-      sending: false
+      sending: false,
+      has_been_contacted_by_user: this.talk.has_been_contacted_by_user
     };
   },
 
@@ -34993,13 +34994,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               case 0:
                 this.sending = true;
                 _context.next = 3;
-                return axios.post('/talks/' + this.talkId + '/contact-speaker');
+                return axios.post('/talks/' + this.talk.id + '/contact-speaker');
 
               case 3:
                 window.Events.$emit('notify', 'We have sent an email to the speaker with your details.');
                 this.sending = false;
+                this.has_been_contacted_by_user = true;
 
-              case 5:
+              case 6:
               case 'end':
                 return _context.stop();
             }
@@ -35592,13 +35594,15 @@ var render = function() {
     "div",
     { staticClass: "flex items-center" },
     [
-      !_vm.sending
+      !_vm.sending && !_vm.has_been_contacted_by_user
         ? _c(
             "button",
             { staticClass: "text-xs font-bold", on: { click: _vm.contact } },
             [_vm._v("\n        Give this talk at my conference >\n    ")]
           )
-        : _c("spinner")
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.sending ? _c("spinner") : _vm._e()
     ],
     1
   )
