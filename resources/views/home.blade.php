@@ -26,17 +26,19 @@
                                 </a>
                             </p>
 
-                            <p class="flex items-center text-orange font-bold text-sm mb-1">
-                                &#9670;
-                                <a href="{{ $talk->video_url }}" class="text-orange ml-2 no-underline">
-                                    Video
-                                </a>
-                            </p>
+                            @if($talk->video_url)
+                                <p class="flex items-center text-orange font-bold text-sm mb-1">
+                                    &#9670;
+                                    <a href="{{ $talk->video_url }}" class="text-orange ml-2 no-underline">
+                                        Video
+                                    </a>
+                                </p>
+                            @endif
                         </main>
                         <footer class="bg-grey-lightest flex flex-row justify-between p-4">
                             <talk-likes :talk="{{ $talk }}"></talk-likes>
                             @if(Auth::check())
-                            <contact-speaker-button :talk-id="{{ $talk->id }}"></contact-speaker-button>
+                            <contact-speaker-button :talk="{{ $talk }}"></contact-speaker-button>
                             @endif
                         </footer>
                     </div>
