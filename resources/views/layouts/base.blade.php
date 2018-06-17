@@ -10,9 +10,9 @@
 
     <!-- Custom Laravel object: used for accessing global PHP inside JS. -->
     <script>
-        window.Laravel = {
-            appName: '{{ config('app.name') }}'
-        }
+        window.Laravel = {!! json_encode([
+            'signedIn' => Auth::check()
+        ]) !!};
     </script>
     @yield('header-scripts')
 </head>

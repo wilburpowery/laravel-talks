@@ -8,6 +8,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import Swal from 'sweetalert2';
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,8 +17,15 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('talk-likes', require('./components/TalkLikes.vue'));
+Vue.component('contact-speaker-button', require('./components/ContactTalkSpeakerButton.vue'));
+
+window.Events = new Vue({});
+
+window.Events.$on('notify', (message, level = 'success') => {
+    Swal('Hey', message, level);
+});
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
 });

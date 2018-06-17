@@ -9,8 +9,8 @@
                     <div class="flex flex-col h-full bg-white shadow-md rounded-lg">
                         <header class="mb-3 relative">
                             <img src="{{ $talk->thumbnail_url }}" alt="{{ $talk->title }}">
-                            <a href="https://github.com/{{ Auth::user()->nickname }}">
-                            <img class="w-10 h-10 rounded-full absolute pin-b shadow" style="right: 10px;" src="{{ Auth::user()->avatar }}" alt="">
+                            <a href="https://github.com/{{ $talk->user->nickname }}">
+                            <img class="w-10 h-10 rounded-full absolute pin-b shadow" style="right: 10px;" src="{{ $talk->user->avatar }}" alt="">
                             </a>
                         </header>
                         <main class="flex-1 p-4 mb-6">
@@ -34,14 +34,10 @@
                             </p>
                         </main>
                         <footer class="bg-grey-lightest flex flex-row justify-between p-4">
-                            <button class="border border-grey-light text-grey-darkest py-2 px-4 flex items-center hover:bg-grey-light">
-                                <svg class="w-6 h-6 mr-2 fill-current text-red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z"/></svg>
-                                {{ $talk->likes_count }}
-                            </button>
-
-                            <button class="text-xs font-bold">
-                                Give this talk at my conference >
-                            </button>
+                            <talk-likes :talk="{{ $talk }}"></talk-likes>
+                            @if(Auth::check())
+                            <contact-speaker-button :talk-id="{{ $talk->id }}"></contact-speaker-button>
+                            @endif
                         </footer>
                     </div>
                 </div>
