@@ -15,6 +15,18 @@
         ]) !!};
     </script>
     @yield('header-scripts')
+
+    @if(App::environment() == 'production')
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99829990-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-99829990-2');
+        </script>
+    @endif
 </head>
 <body class="min-h-screen flex flex-col antialiased bg-beige font-sans leading-tight text-grey-darkest">
     <header class="bg-white border-b p-4 mb-8">
