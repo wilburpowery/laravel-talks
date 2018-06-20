@@ -5,7 +5,7 @@
         </text>
         <g id="Icon" transform="translate(15.000000, 6.000000)">
             <ellipse id="Oval" fill="#969696" cx="114" cy="124" rx="114" ry="116"></ellipse>
-            <g id="Group" transform="translate(37.000000, 0.000000)" fill="#FFFFFF" font-family="Nunito-Black, Nunito" font-size="201" font-weight="700" letter-spacing="1.82727146">
+            <g id="Group" transform="translate(37.000000, 0.000000)" fill="#FFFFFF" font-family="Nunito-Black, Nunito" font-size="201" font-weight="700" letter-spacing="1.827271">
                 <text id="T">
                     <tspan x="33" y="203">T</tspan>
                 </text>
