@@ -33,8 +33,8 @@
             <div class="container mx-auto">
                 <nav class="flex flex-col md:flex-row items-center justify-between">
                     <div class="mb-8 md:m-0">
-                        <a href="/" class="no-underline hover:text-orange">
-                            @include('icons.logo')
+                        <a href="/" class="no-underline font-bold text-3xl text-grey-darkest hover:text-orange">
+                            Laravel Talks
                         </a>
                     </div>
                     <div>
