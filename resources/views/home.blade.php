@@ -16,7 +16,7 @@
                         <main class="flex-1 p-4 mb-6">
                             <div class="mb-3">
                                 <h3 class="mb-3">{{ $talk->title }}</h3>
-                                {{ $talk->description }}
+                                {{ str_limit($talk->description, 250) }}
                             </div>
 
                             <p class="flex items-center text-orange font-bold text-sm mb-1">
