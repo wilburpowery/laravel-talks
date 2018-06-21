@@ -2,7 +2,7 @@
 
 @section('body')
     <div class="container mx-auto">
-        <h1 class="mb-6">Latests Talks</h1>
+        <h1 class="mb-6">Latests</h1>
         <div class="flex flex-wrap -mx-4">
             @forelse($talks as $talk)
                 <div class="w-full md:w-1/3 px-4 mt-4 mb-8">
