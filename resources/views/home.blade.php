@@ -5,7 +5,7 @@
         <h1 class="mb-6">Latests Talks</h1>
         <div class="flex flex-wrap -mx-4">
             @forelse($talks as $talk)
-                <div class="w-full md:w-1/2 px-4 mt-4 mb-8">
+                <div class="w-full md:w-1/3 px-4 mt-4 mb-8">
                     <div class="flex flex-col h-full bg-white shadow-md rounded-lg">
                         <header class="mb-3 relative">
                             <img src="{{ $talk->thumbnail_url }}" alt="{{ $talk->title }}">
